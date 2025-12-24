@@ -12,7 +12,7 @@ connectDB();
 app.use(cors({
   origin: [
       "http://localhost:5173",
-      "https://shankar-movie-app.netlify.app",
+      "https://movie-app-six-lovat.vercel.app",
     ],
   credentials: true,
 }));
