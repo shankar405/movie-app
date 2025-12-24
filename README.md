@@ -3,6 +3,10 @@
 This is a full-stack movie application built with the MERN stack. The project is divided into two main services:
 
 ---
+## 🌐 Live Demo
+
+👉 **Frontend (Live Application)**  
+🔗 https://movie-app-six-lovat.vercel.app/login
 
 ## 📂 Project Modules
 
