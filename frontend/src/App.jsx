@@ -9,7 +9,7 @@ const App = () => (
   <BrowserRouter>
     <Routes>
       <Route
-        path="/movie"
+        path="/movies"
         element={
           <AuthRoute>
             <Movies />
