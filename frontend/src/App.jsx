@@ -6,18 +6,25 @@ import Register from "./pages/Register";
 import  { AuthRoute,AdminRoute } from "./components/AdminRoute";
 
 const App = () => (
-  <BrowserRouter>
+ <BrowserRouter>
     <Routes>
+      <Route path="/" element={<Navigate to="/login" replace />} />
+
+      {/* Public routes */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+
+      {/* Authenticated routes */}
       <Route
-        path="/"
+        path="/movies"
         element={
           <AuthRoute>
             <Movies />
           </AuthRoute>
         }
       />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+
+      {/* Admin-only route */}
       <Route
         path="/admin"
         element={
@@ -26,6 +33,9 @@ const App = () => (
           </AdminRoute>
         }
       />
+
+      {/* Catch-all */}
+      <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
   </BrowserRouter>
 );
