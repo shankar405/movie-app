@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Movies from "./pages/Home";
 import Admin from "./pages/Admin";
 import Login from "./pages/Login";
@@ -6,25 +6,19 @@ import Register from "./pages/Register";
 import  { AuthRoute,AdminRoute } from "./components/AdminRoute";
 
 const App = () => (
- <BrowserRouter>
+  <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Navigate to="/login" replace />} />
-
-      {/* Public routes */}
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
-
-      {/* Authenticated routes */}
       <Route
-        path="/movies"
+        path="/movie"
         element={
           <AuthRoute>
             <Movies />
           </AuthRoute>
         }
       />
-
-      {/* Admin-only route */}
+         <Route path="/" element={<Navigate to="/login" replace />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
       <Route
         path="/admin"
         element={
@@ -33,9 +27,6 @@ const App = () => (
           </AdminRoute>
         }
       />
-
-      {/* Catch-all */}
-      <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
   </BrowserRouter>
 );
